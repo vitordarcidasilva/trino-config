@@ -10,6 +10,9 @@ server:
 additionalCatalogs:
   iceberg.properties: |-
     connector.name=iceberg
+    
+    # Forçar criação das tabelas de catálogo
+    iceberg.jdbc-catalog.init-catalog-tables=true
     iceberg.jdbc-catalog.type=jdbc
     iceberg.jdbc-catalog.driver-class=org.postgresql.Driver
     iceberg.jdbc-catalog.connection-url=jdbc:postgresql://postgres-service.metastore:5432/hivemetastore
@@ -17,12 +20,9 @@ additionalCatalogs:
     iceberg.jdbc-catalog.connection-password=password
     iceberg.jdbc-catalog.catalog-name=iceberg_catalog
     iceberg.jdbc-catalog.default-warehouse-dir=s3a://iceberg/warehouse/
-    
-    # Forçar inicialização das tabelas do catálogo
-    iceberg.jdbc-catalog.initialize-catalog-tables=true
 
+    iceberg.catalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO
     iceberg.s3.endpoint=http://minio.minio-system.svc.cluster.local:9000
     iceberg.s3.access-key=minio
     iceberg.s3.secret-key=minio123
     iceberg.s3.path-style-access=true
-    iceberg.catalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO
