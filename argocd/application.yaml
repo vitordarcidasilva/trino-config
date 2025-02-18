@@ -21,11 +21,11 @@ spec:
   sources:
     - repoURL: https://github.com/vitordarcidasilva/trino-config.git
       targetRevision: main
-      ref: values
       path: tools/k8s/helm/trino/local
+      ref: values
     - repoURL: https://trinodb.github.io/charts/
       targetRevision: 0.21.0
+      chart: trino
       helm:
         valueFiles:
-          - $values/values.yaml
-      chart: trino
+          - values.yaml
