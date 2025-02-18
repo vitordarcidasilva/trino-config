@@ -8,7 +8,7 @@ server:
       maxMemoryPerNode: "1GB"
 
 additionalCatalogs:
-  iceberg.properties: |-
+  iceberg: |-
     connector.name=iceberg
     iceberg.jdbc-catalog.type=jdbc
     iceberg.jdbc-catalog.driver-class=org.postgresql.Driver
