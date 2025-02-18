@@ -9,6 +9,9 @@ server:
 
 additionalCatalogs:
   iceberg.properties: |-
+    # Nome do conector
+    connector.name=iceberg
+
     # Configurações do catálogo JDBC do Iceberg
     iceberg.catalog.type=jdbc
     iceberg.catalog.jdbc.driver=org.postgresql.Driver
