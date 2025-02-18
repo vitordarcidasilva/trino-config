@@ -26,5 +26,5 @@ spec:
       targetRevision: 0.21.0
       helm:
         valueFiles:
-          - $trino-config/tools/k8s/helm/trino/local/values.yaml
+          - tools/k8s/helm/trino/local/values.yaml
       chart: trino
