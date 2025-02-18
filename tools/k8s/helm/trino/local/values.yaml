@@ -8,7 +8,7 @@ server:
       maxMemoryPerNode: "1GB"
 
 additionalCatalogs:
-  iceberg: |-
+  iceberg.properties: |-
     connector.name=iceberg
     iceberg.jdbc-catalog.type=jdbc
     iceberg.jdbc-catalog.driver-class=org.postgresql.Driver
@@ -17,6 +17,9 @@ additionalCatalogs:
     iceberg.jdbc-catalog.connection-password=password
     iceberg.jdbc-catalog.catalog-name=iceberg_catalog
     iceberg.jdbc-catalog.default-warehouse-dir=s3a://iceberg/warehouse/
+    
+    # Forçar inicialização das tabelas do catálogo
+    iceberg.jdbc-catalog.initialize-catalog-tables=true
 
     iceberg.s3.endpoint=http://minio.minio-system.svc.cluster.local:9000
     iceberg.s3.access-key=minio
