@@ -10,17 +10,11 @@ server:
 additionalCatalogs:
   iceberg.properties: |-
     connector.name=iceberg
-    catalog.type=jdbc
-    jdbc.catalog.driver-class=org.postgresql.Driver
-    jdbc.catalog.connection-url=jdbc:postgresql://postgres-service.metastore:5432/hivemetastore
-    jdbc.catalog.connection-user=metastore
-    jdbc.catalog.connection-password=password
-    catalog-name=iceberg_catalog
-    warehouse=s3a://iceberg/warehouse/
+    iceberg.catalog.type=jdbc
+    iceberg.jdbc-catalog.driver-class=org.postgresql.Driver
+    iceberg.jdbc-catalog.connection-url=jdbc:postgresql://postgres-service.metastore:5432/hivemetastore
+    iceberg.jdbc-catalog.connection-user=metastore
+    iceberg.jdbc-catalog.connection-password=password
+    iceberg.jdbc-catalog.catalog-name=iceberg_catalog
+    iceberg.jdbc-catalog.default-warehouse-dir=s3a://iceberg/warehouse/
 
-    # Configurações do S3 (Minio)
-    io-impl=org.apache.iceberg.aws.s3.S3FileIO
-    s3.endpoint=http://minio.minio-system.svc.cluster.local:9000
-    s3.access-key=minio
-    s3.secret-key=minio123
-    s3.path-style-access=true
