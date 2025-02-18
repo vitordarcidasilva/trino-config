@@ -6,15 +6,15 @@ server:
     query:
       maxMemory: "3GB"
       maxMemoryPerNode: "1GB"
-additionalCatalogs:
-  "iceberg": |
-    connector.name=iceberg
-    iceberg.catalog.type=jdbc
-    iceberg.catalog.jdbc-url=jdbc:postgresql://postgres-service.metastore:5432/hivemetastore
-    iceberg.catalog.jdbc-user=metastore
-    iceberg.catalog.jdbc-password=password
-    hive.s3.endpoint=http://minio.minio-system:9000
-    hive.s3.path-style-access=true
-    hive.s3.aws-access-key=minio
-    hive.s3.aws-secret-key=minio123
-    iceberg.file-format=parquet
+  catalog:
+    iceberg.properties: |
+      connector.name=iceberg
+      iceberg.catalog.type=jdbc
+      iceberg.catalog.jdbc-url=jdbc:postgresql://postgres-service.metastore:5432/hivemetastore
+      iceberg.catalog.jdbc-user=metastore
+      iceberg.catalog.jdbc-password=password
+      hive.s3.endpoint=http://minio.minio-system:9000
+      hive.s3.path-style-access=true
+      hive.s3.aws-access-key=minio
+      hive.s3.aws-secret-key=minio123
+      iceberg.file-format=parquet
