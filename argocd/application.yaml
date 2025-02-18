@@ -19,7 +19,7 @@ spec:
       - PruneLast=true
       - RespectIgnoreDifferences=true
   sources:
-    - repoURL: https://github.com/SEU_USUARIO/trino-config.git
+    - repoURL: https://github.com/vitordarcidasilva/trino-config.git
       targetRevision: main
       ref: trino-config
     - repoURL: https://trinodb.github.io/charts/
