@@ -6,9 +6,8 @@ server:
     query:
       maxMemory: "3GB"
       maxMemoryPerNode: "1GB"
-
 additionalCatalogs:
-  iceberg.properties: |
+  "iceberg": |
     connector.name=iceberg
     iceberg.catalog.type=jdbc
     iceberg.catalog.jdbc-url=jdbc:postgresql://postgres-service.metastore:5432/hivemetastore
