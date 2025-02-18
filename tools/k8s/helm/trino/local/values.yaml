@@ -6,10 +6,11 @@ server:
     query:
       maxMemory: "3GB"
       maxMemoryPerNode: "1GB"
-
 additionalCatalogs:
   iceberg.properties: |-
     connector.name=iceberg
+    
+    # Configurações do catálogo JDBC
     iceberg.jdbc-catalog.type=jdbc
     iceberg.jdbc-catalog.driver-class=org.postgresql.Driver
     iceberg.jdbc-catalog.connection-url=jdbc:postgresql://postgres-service.metastore:5432/hivemetastore
@@ -18,7 +19,16 @@ additionalCatalogs:
     iceberg.jdbc-catalog.catalog-name=iceberg_catalog
     iceberg.jdbc-catalog.default-warehouse-dir=s3a://iceberg/warehouse/
     
+    # Configurações de IO e S3
     iceberg.catalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO
+    
+    # Configurações adicionais de S3
+    hive.s3.endpoint=http://minio.minio-system.svc.cluster.local:9000
+    hive.s3.path-style-access=true
+    hive.s3.access-key=minio
+    hive.s3.secret-key=minio123
+    
+    # Configurações de S3 alternativas
     iceberg.s3.endpoint=http://minio.minio-system.svc.cluster.local:9000
     iceberg.s3.access-key=minio
     iceberg.s3.secret-key=minio123
