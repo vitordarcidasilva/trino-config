@@ -19,6 +19,8 @@ additionalCatalogs:
     iceberg.jdbc-catalog.connection-password=password
     iceberg.jdbc-catalog.catalog-name=iceberg_catalog
     iceberg.jdbc-catalog.default-warehouse-dir=s3a://iceberg/warehouse/
+    log.enable-logging=true
+    logger.io.trino.plugin.iceberg=DEBUG
 
     # Configurações do S3 (Minio)
     iceberg.catalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO
