@@ -1,3 +1,12 @@
+server:
+  workers: 2
+  config:
+    memory:
+      heapSize: "4G"
+    query:
+      maxMemory: "3GB"
+      maxMemoryPerNode: "1GB"
+
 additionalCatalogs:
   iceberg.properties: |-
     connector.name=iceberg
@@ -8,11 +17,3 @@ additionalCatalogs:
     iceberg.jdbc-catalog.connection-password=password
     iceberg.jdbc-catalog.catalog-name=iceberg_catalog
     iceberg.jdbc-catalog.default-warehouse-dir=s3a://iceberg/warehouse/
-
-    # Configuração do MinIO como backend S3
-    catalog.warehouse=s3a://iceberg/warehouse/
-    catalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO
-    catalog.s3.endpoint=http://minio.minio-system.svc.cluster.local:9000
-    catalog.s3.access-key=minio
-    catalog.s3.secret-key=minio123
-    catalog.s3.path-style-access=true
