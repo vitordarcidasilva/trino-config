@@ -4,23 +4,16 @@ server:
     memory:
       heapSize: "4G"
     query:
-      maxMemory: "3GB"
+      maxMemory: "3GB"'
       maxMemoryPerNode: "1GB"
 
 additionalCatalogs:
   iceberg: |-
     connector.name=iceberg
-    iceberg.catalog.type=jdbc
-    iceberg.unique-table-location=true
-    iceberg.jdbc-catalog.driver-class=org.postgresql.Driver
-    iceberg.jdbc-catalog.connection-url=jdbc:postgresql://postgres-service.metastore:5432/hivemetastore
-    iceberg.jdbc-catalog.connection-user=metastore
-    iceberg.jdbc-catalog.connection-password=password
-    iceberg.jdbc-catalog.catalog-name=iceberg_catalog
-    iceberg.jdbc-catalog.default-warehouse-dir=s3a://iceberg/warehouse/
-    fs.native-s3.enabled=true
-    s3.endpoint=http://minio.minio-system.svc.cluster.local:9000
-    s3.region=us-east-1
-    s3.path-style-access=true
-    s3.aws-access-key=minio
-    s3.aws-secret-key=minio123
+    iceberg.catalog.type=hadoop
+    iceberg.catalog.warehouse=s3a://iceberg/warehouse/  
+    fs.s3a.endpoint=http://minio.minio-system.svc.cluster.local:9000
+    fs.s3a.access.key=minio
+    fs.s3a.secret.key=minio123
+    fs.s3a.connection.ssl.enabled=false
+    fs.s3a.path.style.access=true
