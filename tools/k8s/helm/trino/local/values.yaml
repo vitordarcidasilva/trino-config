@@ -4,9 +4,8 @@ server:
     memory:
       heapSize: "4G"
     query:
-      maxMemory: "3GB"'
+      maxMemory: "3GB"    # Removida a aspa simples aqui
       maxMemoryPerNode: "1GB"
-
 additionalCatalogs:
   iceberg: |-
     connector.name=iceberg
