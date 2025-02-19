@@ -11,6 +11,7 @@ additionalCatalogs:
   iceberg: |-
     connector.name=iceberg
     iceberg.catalog.type=jdbc
+    iceberg.unique-table-location=true
     iceberg.jdbc-catalog.driver-class=org.postgresql.Driver
     iceberg.jdbc-catalog.connection-url=jdbc:postgresql://postgres-service.metastore:5432/hivemetastore
     iceberg.jdbc-catalog.connection-user=metastore
